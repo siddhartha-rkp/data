@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+    <style type="text/css">
+      /*.top{
+      	margin-top: 415px;
+      }
+      .height{
+      	height: 10000px;
+      }
+      .height1{
+      	height: 500px;
+      }*/
+      #tablet {
+        z-index: 0;
+        position: absolute;
+        left: 430px;
+        top: 250px;
+      }
+      #tube {
+        z-index: 2;
+        position: absolute;
+      }
+      #cap {
+        z-index: 1;
+        position: absolute;
+        right: 500px;
+        top: 0px;
+      }
+      .opacity2 {
+        opacity: 1 !important;
+        transition: opacity 3s;
+      }
+      .opacity1 {
+        opacity: 1 !important;
+        transition: opacity 3s;
+      }
+      #bg-glass {
+        position: absolute;
+        width: 800px;
+        height: 672px;
+        margin-top: 35%;
+        right: 353px;
+        background: url(http://www.yellowweb.co.in/fullife/wp-content/uploads/2019/09/fullife-glass-1.png)
+          no-repeat left top;
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container height1">
+      <div>
+        <img src="1.jpg" width="100%" />
+      </div>
+    </div>
+    <div class="container height">
+      <div class="row top">
+        <div class="col-md-12">
+          <!-- <img id="tube" src="http://www.yellowweb.co.in/fullife/wp-content/uploads/2019/09/fnu.png" class="embalagem1" alt="Embalagem Guronsan"> -->
+          <img
+            id="tube"
+            src="http://www.yellowweb.co.in/fullife/wp-content/uploads/2019/09/tube_animate.png"
+            class="embalagem1"
+            alt="Embalagem Guronsan"
+          />
+
+          <div id="tablet">
+            <img
+              id="capsule"
+              src="http://www.yellowweb.co.in/fullife/wp-content/uploads/2019/09/comprimido.png"
+              alt="Comprimido Guronsan"
+            />
+          </div>
+          <img
+            id="cap"
+            src="http://www.yellowweb.co.in/fullife/wp-content/uploads/2019/09/cap1.png"
+            alt="Tampa Guronsan"
+          />
+          <div id="bg-glass"></div>
+          <img
+            id="glass"
+            src="http://www.yellowweb.co.in/fullife/wp-content/uploads/2019/09/copo.png"
+            alt="copo"
+            style="margin-top: 35%;opacity: 0"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="container height1">
+      <div>
+        <img src="1.jpg" width="100%" />
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      window.onscroll = function() {
+        var scrollpos =
+          document.documentElement.scrollTop || document.body.scrollTop;
+        var b = document.getElementById("tube");
+        var x = document.getElementById("tablet");
+        var y = document.getElementById("cap");
+        var z = document.getElementById("capsule");
+        var a = document.getElementById("glass");
+        console.log(scrollpos);
+
+        // if(scrollpos > 0 && scrollpos <=99){
+        // 	x.style.transform = "translate(0px)rotate("+scrollpos/2.2+"deg)";
+        // 	y.style.transform = "translate(0px)";
+        // 	y.classList.remove("opacity2");
+        // }
+        if (scrollpos > 0 && scrollpos <= 45) {
+          b.style.transform = "rotate(" + scrollpos / 0.5 + "deg)";
+          //   b.style.transform = "rotate(90deg)";
+          b.style.transitionDuration = "0.9s";
+        }
+        if (scrollpos => 45 && scrollpos <= 90) {
+          x.style.transform =
+            "translate(0px)rotate(" + scrollpos / 2.2 + "deg)";
+
+          y.style.transform = "translate(0px)";
+          y.classList.remove("opacity2");
+        }
+        if (scrollpos > 100 && scrollpos <= 500) {
+          x.style.transform =
+            "translate3d(" +
+            scrollpos / 2.2 +
+            "px,0px, 0px)rotate(" +
+            scrollpos / 2.2 +
+            "deg)";
+          z.style.transform = "translate3d(0px,0px, 0px)";
+          y.style.transform = "translate(" + scrollpos / 2.2 + "px)";
+          z.style.transition = "0.0s";
+          y.classList.add("opacity2");
+          a.classList.remove("opacity1");
+        }
+        if (scrollpos > 500 && scrollpos <= 900) {
+          x.style.transform = "translate3d(230px,0px, 0px)rotate(360deg)";
+          z.style.transform = "translate3d(-25px," + scrollpos / 2 + "px, 0px)";
+          z.style.transition = "0.9s";
+          a.classList.add("opacity1");
+        }
+      };
+    </script>
+  </body>
+</html>
